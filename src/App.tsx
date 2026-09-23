@@ -1,5 +1,7 @@
+import { AppShell } from './ui/AppShell'
+
 function App() {
-  return <h1>WinDIY</h1>
+  return <AppShell />
 }
 
 export default App

@@ -61,6 +61,21 @@ export function renameProject(
   return renamed
 }
 
+export function updateProjectParams(
+  id: string,
+  params: WindowParams,
+  storage: Storage = window.localStorage,
+): WindowProject {
+  const projects = readAll(storage)
+  const index = requireProjectIndex(projects, id)
+
+  const updated: WindowProject = { ...projects[index], params }
+  projects[index] = updated
+  writeAll(storage, projects)
+
+  return updated
+}
+
 export function duplicateProject(
   id: string,
   storage: Storage = window.localStorage,
