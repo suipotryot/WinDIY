@@ -11,6 +11,7 @@ import {
   importProjectFromJson,
   listProjects,
   renameProject,
+  updateProjectParams,
 } from '../../src/persistence/projectStore'
 import { createInMemoryStorage } from './inMemoryStorage'
 
@@ -81,6 +82,25 @@ describe('renameProject', () => {
     const storage = createInMemoryStorage()
 
     expect(() => renameProject('unknown-id', 'Nouveau nom', storage)).toThrow()
+  })
+})
+
+describe('updateProjectParams', () => {
+  it('should update the params of the matching project', () => {
+    const storage = createInMemoryStorage()
+    const project = createProject('Fenêtre cuisine', fixtureWindowParams, storage)
+    const updatedParams = { ...fixtureWindowParams, reference: 'FEN-002' }
+
+    const updated = updateProjectParams(project.id, updatedParams, storage)
+
+    expect(updated.params).toEqual(updatedParams)
+    expect(getProject(project.id, storage)?.params).toEqual(updatedParams)
+  })
+
+  it('should throw when the project does not exist', () => {
+    const storage = createInMemoryStorage()
+
+    expect(() => updateProjectParams('unknown-id', fixtureWindowParams, storage)).toThrow()
   })
 })
 

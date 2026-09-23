@@ -6,3 +6,81 @@
 body {
   margin: 0;
 }
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-shell__project-bar {
+  border-bottom: 1px solid light-dark(#ccc, #444);
+  padding: 0.5rem 1rem;
+}
+
+.app-shell__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.app-shell__left,
+.app-shell__right {
+  width: 20rem;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.app-shell__left {
+  border-right: 1px solid light-dark(#ccc, #444);
+}
+
+.app-shell__right {
+  border-left: 1px solid light-dark(#ccc, #444);
+}
+
+.app-shell__center {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+form label,
+.app-shell__project-bar label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+form input,
+.app-shell__project-bar input[type='text'] {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+fieldset {
+  margin-bottom: 0.75rem;
+}
+
+fieldset label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.app-shell__project-bar nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.app-shell__project-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
