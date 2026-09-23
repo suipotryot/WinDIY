@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Ruby source (local reference, own git repo)
+SketchupMenuiseriesMaker/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
